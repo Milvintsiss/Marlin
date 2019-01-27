@@ -618,9 +618,8 @@
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-//#define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 25 }
-//#define DEFAULT_MAX_FEEDRATE          { 5000, 5000, 800, 25000}
-#define DEFAULT_MAX_FEEDRATE          { 5000, 5000, 5000, 25000}
+//#define DEFAULT_MAX_FEEDRATE          { 5000, 5000, 5000, 25000}
+#define DEFAULT_MAX_FEEDRATE          { 5000, 5000, 50000, 4500}
 
 /**
  * Default Max Acceleration (change/s) change = mm/s
@@ -628,8 +627,8 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-//#define DEFAULT_MAX_ACCELERATION      { 10000, 10000, 800, 10000}
-#define DEFAULT_MAX_ACCELERATION      { 10000, 10000, 5000, 10000}
+//#define DEFAULT_MAX_ACCELERATION      { 10000, 10000, 5000, 10000}
+#define DEFAULT_MAX_ACCELERATION      { 10000, 10000, 50000, 100000}
 
 /**
  * Default Acceleration (change/s) change = mm/s
@@ -639,12 +638,12 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
+//#define DEFAULT_ACCELERATION          300    // X, Y, Z and E acceleration for printing moves
+//#define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration for retracts
+//#define DEFAULT_TRAVEL_ACCELERATION   3000    // X, Y, Z acceleration for travel (non printing) moves
 #define DEFAULT_ACCELERATION          300    // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   3000    // X, Y, Z acceleration for travel (non printing) moves
-//#define DEFAULT_ACCELERATION          400     // X, Y, Z and E acceleration for printing moves
-//#define DEFAULT_RETRACT_ACCELERATION  500    // E acceleration for retracts
-//#define DEFAULT_TRAVEL_ACCELERATION   500    // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_RETRACT_ACCELERATION  30000    // E acceleration for retracts
+#define DEFAULT_TRAVEL_ACCELERATION   30000    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk (mm/s)
@@ -656,8 +655,10 @@
  */
 #define DEFAULT_XJERK                 20.0
 #define DEFAULT_YJERK                 20.0
-#define DEFAULT_ZJERK                  0.3
-#define DEFAULT_EJERK                  5.0
+//#define DEFAULT_ZJERK                  0.3
+#define DEFAULT_ZJERK                  20.0
+//#define DEFAULT_EJERK                  5.0
+#define DEFAULT_EJERK                  50.0
 
 /**
  * S-Curve Acceleration
@@ -799,7 +800,7 @@
 #define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
 
 // Feedrate (mm/m) for the "accurate" probe of each point
-#define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 2)
+#define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 40)
 
 // The number of probes to perform at each point.
 //   Set to 2 for a fast/slow probe, using the second probe result.
@@ -876,7 +877,7 @@
 
 //#define UNKNOWN_Z_NO_RAISE // Don't raise Z (lower the bed) if Z is "unknown." For beds that fall when Z is powered off.
 
-//#define Z_HOMING_HEIGHT 4  // (in mm) Minimal z height before homing (G28) for Z clearance above the bed, clamps, ...
+#define Z_HOMING_HEIGHT 2  // (in mm) Minimal z height before homing (G28) for Z clearance above the bed, clamps, ...
                              // Be sure you have this distance over your Z_MAX_POS in case.
 
 // Direction of endstops when homing; 1=MAX, -1=MIN

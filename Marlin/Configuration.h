@@ -453,7 +453,7 @@
  *
  * *** IT IS HIGHLY RECOMMENDED TO LEAVE THIS OPTION ENABLED! ***
  */
-#define PREVENT_COLD_EXTRUSION
+//#define PREVENT_COLD_EXTRUSION // FIXME
 //#define EXTRUDE_MINTEMP 160  // 160 guards against false tripping when the extruder fan kicks on.
 
 /**
@@ -611,7 +611,8 @@
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 4000, 500 }
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 3183, 446 } // 38.3
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 38, 38, 3183, 446 } // 50.3
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 70, 70, 3183, 500}
+//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 70, 70, 3183, 500} 537
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 70, 70, 3183, 400}
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -619,7 +620,7 @@
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
 //#define DEFAULT_MAX_FEEDRATE          { 5000, 5000, 5000, 25000}
-#define DEFAULT_MAX_FEEDRATE          { 5000, 5000, 50000, 4500}
+#define DEFAULT_MAX_FEEDRATE          { 5000, 5000, 50000, 45000}
 
 /**
  * Default Max Acceleration (change/s) change = mm/s
@@ -897,7 +898,7 @@
 //#define Y_MIN_POS -5
 #define X_MIN_POS -19
 #define Y_MIN_POS -10
-#define Z_MIN_POS 0
+#define Z_MIN_POS -4
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 #define Z_MAX_POS 200
@@ -995,7 +996,7 @@
  * Normally G28 leaves leveling disabled on completion. Enable
  * this option to have G28 restore the prior leveling state.
  */
-//#define RESTORE_LEVELING_AFTER_G28
+#define RESTORE_LEVELING_AFTER_G28
 
 /**
  * Enable detailed logging of G28, G29, M48, etc.
